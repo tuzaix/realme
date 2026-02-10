@@ -1,0 +1,1853 @@
+{
+  "name": "心理年龄测试题库",
+  "version": "1.0.0",
+  "language": "zh-CN",
+  "scale": {
+    "type": "likert_5",
+    "labels": [
+      "非常不同意",
+      "不同意",
+      "一般",
+      "同意",
+      "非常同意"
+    ],
+    "min": 1,
+    "max": 5
+  },
+  "dimensions": [
+    {
+      "key": "future_perspective",
+      "name": "未来展望"
+    },
+    {
+      "key": "cognitive_flexibility",
+      "name": "认知弹性"
+    },
+    {
+      "key": "emotional_maturity",
+      "name": "情绪成熟"
+    },
+    {
+      "key": "social_openness",
+      "name": "社交开放"
+    },
+    {
+      "key": "self_agency",
+      "name": "自我主导"
+    },
+    {
+      "key": "subjective_vitality",
+      "name": "活力感知"
+    },
+    {
+      "key": "wisdom_gains",
+      "name": "智慧积累"
+    },
+    {
+      "key": "playfulness",
+      "name": "玩兴"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "code": "Q1",
+      "dimension": {
+        "key": "future_perspective",
+        "name": "未来展望"
+      },
+      "type": "likert_5",
+      "prompt": "我经常思考 5 年甚至 10 年后的生活规划。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "FTP 理论：未来时间观长=心态年轻。"
+    },
+    {
+      "id": 2,
+      "code": "Q2",
+      "dimension": {
+        "key": "future_perspective",
+        "name": "未来展望"
+      },
+      "type": "likert_5",
+      "prompt": "我觉得自己最好的时光已经过去了。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "FTP 理论：未来受限感。"
+    },
+    {
+      "id": 3,
+      "code": "Q3",
+      "dimension": {
+        "key": "future_perspective",
+        "name": "未来展望"
+      },
+      "type": "likert_5",
+      "prompt": "对于学习一项全新的技能（如新语言或编程），我依然感到兴奋。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "成长型思维。"
+    },
+    {
+      "id": 4,
+      "code": "Q4",
+      "dimension": {
+        "key": "future_perspective",
+        "name": "未来展望"
+      },
+      "type": "likert_5",
+      "prompt": "我很少制定长期目标，因为未来充满了不确定性。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "短视/畏缩。"
+    },
+    {
+      "id": 5,
+      "code": "Q5",
+      "dimension": {
+        "key": "future_perspective",
+        "name": "未来展望"
+      },
+      "type": "likert_5",
+      "prompt": "我相信我还有很多机会去改变我的职业或生活方式。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "机会感知。"
+    },
+    {
+      "id": 6,
+      "code": "Q6",
+      "dimension": {
+        "key": "cognitive_flexibility",
+        "name": "认知弹性"
+      },
+      "type": "likert_5",
+      "prompt": "当 APP 界面更新或更换新手机时，我会感到非常烦躁。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "技术适应性低=心态老化。"
+    },
+    {
+      "id": 7,
+      "code": "Q7",
+      "dimension": {
+        "key": "cognitive_flexibility",
+        "name": "认知弹性"
+      },
+      "type": "likert_5",
+      "prompt": "我喜欢和观点与我完全不同的人讨论问题，这很有趣。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "思维开放性。"
+    },
+    {
+      "id": 8,
+      "code": "Q8",
+      "dimension": {
+        "key": "cognitive_flexibility",
+        "name": "认知弹性"
+      },
+      "type": "likert_5",
+      "prompt": "我认为现在的流行音乐/电影大多不如以前的经典。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "怀旧滤镜过重。"
+    },
+    {
+      "id": 9,
+      "code": "Q9",
+      "dimension": {
+        "key": "cognitive_flexibility",
+        "name": "认知弹性"
+      },
+      "type": "likert_5",
+      "prompt": "遇到复杂问题时，我倾向于寻找新的解决方法，而不是沿用老办法。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "流体智力代理。"
+    },
+    {
+      "id": 10,
+      "code": "Q10",
+      "dimension": {
+        "key": "cognitive_flexibility",
+        "name": "认知弹性"
+      },
+      "type": "likert_5",
+      "prompt": "我很难改变我已经养成的日常生活习惯。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "僵化度。"
+    },
+    {
+      "id": 11,
+      "code": "Q11",
+      "dimension": {
+        "key": "emotional_maturity",
+        "name": "情绪成熟"
+      },
+      "type": "likert_5",
+      "prompt": "当事情不按计划进行时，我能很快冷静下来调整方案。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "情绪调节能力（成熟标志）。"
+    },
+    {
+      "id": 12,
+      "code": "Q12",
+      "dimension": {
+        "key": "emotional_maturity",
+        "name": "情绪成熟"
+      },
+      "type": "likert_5",
+      "prompt": "我经常因为别人的无心之言而感到受伤或愤怒。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "情绪敏感度过高（低龄特征）。"
+    },
+    {
+      "id": 13,
+      "code": "Q13",
+      "dimension": {
+        "key": "emotional_maturity",
+        "name": "情绪成熟"
+      },
+      "type": "likert_5",
+      "prompt": "在做决定前，我会仔细权衡长期的后果，而不是只看眼前。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "延时满足。"
+    },
+    {
+      "id": 14,
+      "code": "Q14",
+      "dimension": {
+        "key": "emotional_maturity",
+        "name": "情绪成熟"
+      },
+      "type": "likert_5",
+      "prompt": "我有时会为了宣泄情绪而做出让自己后悔的事。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "冲动控制差。"
+    },
+    {
+      "id": 15,
+      "code": "Q15",
+      "dimension": {
+        "key": "emotional_maturity",
+        "name": "情绪成熟"
+      },
+      "type": "likert_5",
+      "prompt": "我能接受生活中的不完美和失望，而不因此陷入消沉。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "心理韧性。"
+    },
+    {
+      "id": 16,
+      "code": "Q16",
+      "dimension": {
+        "key": "social_openness",
+        "name": "社交开放"
+      },
+      "type": "likert_5",
+      "prompt": "我更喜欢和老朋友待在一起，而不是结识新朋友。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "社交圈固化（社会情感选择理论）。"
+    },
+    {
+      "id": 17,
+      "code": "Q17",
+      "dimension": {
+        "key": "social_openness",
+        "name": "社交开放"
+      },
+      "type": "likert_5",
+      "prompt": "我经常对年轻人的社交话题（如网络梗）感到好奇并尝试了解。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "代际连接。"
+    },
+    {
+      "id": 18,
+      "code": "Q18",
+      "dimension": {
+        "key": "social_openness",
+        "name": "社交开放"
+      },
+      "type": "likert_5",
+      "prompt": "在聚会中，我通常是那个倾听者，而不是表达者。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "注：此题计分特殊，偏成熟。设为正向（成熟）。"
+    },
+    {
+      "id": 19,
+      "code": "Q19",
+      "dimension": {
+        "key": "social_openness",
+        "name": "社交开放"
+      },
+      "type": "likert_5",
+      "prompt": "如果不回复朋友的消息，我会感到很大的社交压力。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "FOMO（错失恐惧），偏低龄焦虑。"
+    },
+    {
+      "id": 20,
+      "code": "Q20",
+      "dimension": {
+        "key": "social_openness",
+        "name": "社交开放"
+      },
+      "type": "likert_5",
+      "prompt": "我享受独处的时间，并不觉得孤独。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "情感独立性（成熟）。"
+    },
+    {
+      "id": 21,
+      "code": "Q21",
+      "dimension": {
+        "key": "self_agency",
+        "name": "自我主导"
+      },
+      "type": "likert_5",
+      "prompt": "我的生活主要由我自己做主，很少受他人意见左右。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "独立自主。"
+    },
+    {
+      "id": 22,
+      "code": "Q22",
+      "dimension": {
+        "key": "self_agency",
+        "name": "自我主导"
+      },
+      "type": "likert_5",
+      "prompt": "遇到困难时，我的第一反应是寻找他人依靠或帮助。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "依赖性。"
+    },
+    {
+      "id": 23,
+      "code": "Q23",
+      "dimension": {
+        "key": "self_agency",
+        "name": "自我主导"
+      },
+      "type": "likert_5",
+      "prompt": "我有清晰的个人价值观，不会轻易随波逐流。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "自我同一性确立。"
+    },
+    {
+      "id": 24,
+      "code": "Q24",
+      "dimension": {
+        "key": "self_agency",
+        "name": "自我主导"
+      },
+      "type": "likert_5",
+      "prompt": "我经常因为担心别人的看法而改变自己的行为。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "高自我监控（低龄特征）。"
+    },
+    {
+      "id": 25,
+      "code": "Q25",
+      "dimension": {
+        "key": "self_agency",
+        "name": "自我主导"
+      },
+      "type": "likert_5",
+      "prompt": "对于自己的财务状况，我有清晰的规划和掌控感。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "生活责任感。"
+    },
+    {
+      "id": 26,
+      "code": "Q26",
+      "dimension": {
+        "key": "subjective_vitality",
+        "name": "活力感知"
+      },
+      "type": "likert_5",
+      "prompt": "我经常感到精力充沛，想要出去活动。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "AARC-Losses 反向。"
+    },
+    {
+      "id": 27,
+      "code": "Q27",
+      "dimension": {
+        "key": "subjective_vitality",
+        "name": "活力感知"
+      },
+      "type": "likert_5",
+      "prompt": "我觉得我的身体状况限制了我做很多想做的事。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "AARC-Losses。"
+    },
+    {
+      "id": 28,
+      "code": "Q28",
+      "dimension": {
+        "key": "subjective_vitality",
+        "name": "活力感知"
+      },
+      "type": "likert_5",
+      "prompt": "与同龄人相比，我觉得我的动作和反应更敏捷。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "比较性活力。"
+    },
+    {
+      "id": 29,
+      "code": "Q29",
+      "dimension": {
+        "key": "subjective_vitality",
+        "name": "活力感知"
+      },
+      "type": "likert_5",
+      "prompt": "即使在周末，我也更愿意躺在家里休息而不是外出。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "低能量状态。"
+    },
+    {
+      "id": 30,
+      "code": "Q30",
+      "dimension": {
+        "key": "subjective_vitality",
+        "name": "活力感知"
+      },
+      "type": "likert_5",
+      "prompt": "对于熬夜或高强度工作，我感到力不从心。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "生理老化感知。"
+    },
+    {
+      "id": 31,
+      "code": "Q31",
+      "dimension": {
+        "key": "wisdom_gains",
+        "name": "智慧积累"
+      },
+      "type": "likert_5",
+      "prompt": "随着年龄增长，我比以前更能欣赏生活中的小确幸。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "AARC-Gains。"
+    },
+    {
+      "id": 32,
+      "code": "Q32",
+      "dimension": {
+        "key": "wisdom_gains",
+        "name": "智慧积累"
+      },
+      "type": "likert_5",
+      "prompt": "在处理人际冲突时，我比以前更懂得换位思考。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "社会智慧。"
+    },
+    {
+      "id": 33,
+      "code": "Q33",
+      "dimension": {
+        "key": "wisdom_gains",
+        "name": "智慧积累"
+      },
+      "type": "likert_5",
+      "prompt": "回顾过去，我对自己犯过的错误感到释怀，并从中吸取了教训。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "自我接纳。"
+    },
+    {
+      "id": 34,
+      "code": "Q34",
+      "dimension": {
+        "key": "wisdom_gains",
+        "name": "智慧积累"
+      },
+      "type": "likert_5",
+      "prompt": "对于很多看不惯的事情，我现在能更包容地看待。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "宽容度。"
+    },
+    {
+      "id": 35,
+      "code": "Q35",
+      "dimension": {
+        "key": "wisdom_gains",
+        "name": "智慧积累"
+      },
+      "type": "likert_5",
+      "prompt": "我经常觉得自己懂得比周围的人多，喜欢说教。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "倚老卖老（负面老化态度）。"
+    },
+    {
+      "id": 36,
+      "code": "Q36",
+      "dimension": {
+        "key": "playfulness",
+        "name": "玩兴"
+      },
+      "type": "likert_5",
+      "prompt": "看到路边的秋千或游乐设施，我会有上去玩一下的冲动。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "童心/好奇心。"
+    },
+    {
+      "id": 37,
+      "code": "Q37",
+      "dimension": {
+        "key": "playfulness",
+        "name": "玩兴"
+      },
+      "type": "likert_5",
+      "prompt": "我认为成年人应该时刻保持严肃，开玩笑是不稳重的表现。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": true,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "缺乏幽默感/僵化。"
+    },
+    {
+      "id": 38,
+      "code": "Q38",
+      "dimension": {
+        "key": "playfulness",
+        "name": "玩兴"
+      },
+      "type": "likert_5",
+      "prompt": "我有一些纯粹为了 “好玩” 而坚持的爱好，不为了赚钱或提升自己。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "内在动机/游戏精神。"
+    },
+    {
+      "id": 39,
+      "code": "Q39",
+      "dimension": {
+        "key": "playfulness",
+        "name": "玩兴"
+      },
+      "type": "likert_5",
+      "prompt": "我很容易被简单的笑话或搞笑视频逗乐。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "情绪感染力。"
+    },
+    {
+      "id": 40,
+      "code": "Q40",
+      "dimension": {
+        "key": "playfulness",
+        "name": "玩兴"
+      },
+      "type": "likert_5",
+      "prompt": "我觉得不仅是孩子，大人也需要 “玩具”。",
+      "options": [
+        {
+          "value": 1,
+          "label": "非常不同意"
+        },
+        {
+          "value": 2,
+          "label": "不同意"
+        },
+        {
+          "value": 3,
+          "label": "一般"
+        },
+        {
+          "value": 4,
+          "label": "同意"
+        },
+        {
+          "value": 5,
+          "label": "非常同意"
+        }
+      ],
+      "is_reverse": false,
+      "scoring": {
+        "method": "reverse_if_is_reverse",
+        "score_value_map": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "reverse_rule": "score = 6 - answer_value"
+      },
+      "note": "玩兴态度。"
+    }
+  ]
+}
