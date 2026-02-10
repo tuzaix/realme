@@ -1,5 +1,8 @@
 <template>
-  <div class="flex-1 flex flex-col max-w-md mx-auto bg-white shadow-lg min-h-screen">
+  <div 
+    class="flex-1 flex flex-col mx-auto bg-white shadow-lg min-h-screen"
+    :class="route.path.startsWith('/admin') ? 'max-w-none' : 'max-w-md'"
+  >
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
@@ -7,6 +10,19 @@
     </router-view>
   </div>
 </template>
+
+<script setup>
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { useQuizStore } from './store/quiz'
+
+const route = useRoute()
+const store = useQuizStore()
+
+onMounted(() => {
+  store.initCards()
+})
+</script>
 
 <style>
 .fade-enter-active,
