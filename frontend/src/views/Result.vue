@@ -77,31 +77,53 @@
       </p>
     </div>
 
-    <!-- Share Modal -->
-    <div v-if="shareImage" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col items-center justify-center p-6 animate-in fade-in duration-300" @click.self="shareImage = null">
-      <div class="relative w-full max-w-[320px] flex flex-col items-center gap-4">
+    <!-- Full-screen Loading Overlay -->
+    <div v-if="isGenerating" class="fixed inset-0 z-[60] bg-slate-900/10 backdrop-blur-[2px] flex flex-col items-center justify-center animate-in fade-in duration-300">
+      <div class="bg-white/90 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl border border-white/20 flex flex-col items-center gap-4 scale-90 animate-pulse">
+        <div class="relative">
+          <Loader2 class="w-12 h-12 text-blue-600 animate-spin" />
+          <Brain class="w-6 h-6 text-blue-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        </div>
+        <div class="text-center">
+          <p class="text-slate-800 font-bold text-lg">正在绘制画像...</p>
+          <p class="text-slate-400 text-xs mt-1">请稍候，即将呈现分享卡片</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Modal (The Floating Layer) -->
+    <div v-if="shareImage" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-xl flex flex-col items-center justify-center p-6 animate-in fade-in duration-500" @click.self="shareImage = null">
+      <div class="relative w-full max-w-[320px] flex flex-col items-center gap-5 animate-in zoom-in-95 slide-in-from-bottom-10 duration-500">
         <!-- Close Button -->
-        <button @click="shareImage = null" class="absolute -top-10 -right-2 p-2 text-white/50 hover:text-white transition-colors">
-          <X class="w-6 h-6" />
+        <button @click="shareImage = null" class="absolute -top-12 right-0 p-2 text-white/30 hover:text-white transition-colors">
+          <X class="w-8 h-8" />
         </button>
 
-        <!-- Tip Text (Fixed at top) -->
-        <div class="flex flex-col items-center shrink-0">
-          <div class="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20 backdrop-blur-md">
+        <!-- Tip Text (Floating Badge) -->
+        <div class="shrink-0">
+          <div class="flex items-center gap-2 px-5 py-2.5 bg-blue-500/20 rounded-full border border-blue-400/30 backdrop-blur-xl shadow-[0_0_20px_rgba(59,130,246,0.2)]">
             <span class="flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
-            <p class="text-white text-sm font-medium">长按图片保存到相册</p>
+            <p class="text-blue-100 text-sm font-bold tracking-wide">长按下方图片保存</p>
           </div>
         </div>
         
-        <!-- Preview Container (Scrollable) -->
-        <div class="bg-white p-1.5 rounded-[2.5rem] shadow-2xl w-full max-h-[60vh] overflow-y-auto scrollbar-hide">
-          <img :src="shareImage" class="w-full rounded-[2rem] block shadow-inner" alt="分享卡片" @contextmenu.prevent />
+        <!-- Preview Container (Glassmorphism Frame) -->
+        <div class="group relative bg-white/10 p-1 rounded-[2.5rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 w-full overflow-hidden">
+          <div class="max-h-[60vh] overflow-y-auto scrollbar-hide rounded-[2.2rem]">
+            <img :src="shareImage" class="w-full block shadow-2xl transition-transform duration-700 group-hover:scale-[1.01]" alt="分享卡片" @contextmenu.prevent />
+          </div>
+          
+          <!-- Subtle Inner Glow -->
+          <div class="absolute inset-0 pointer-events-none rounded-[2.5rem] border border-white/5 ring-1 ring-white/10"></div>
         </div>
 
-        <p class="text-white/30 text-xs tracking-widest shrink-0">上下滑动预览完整卡片</p>
+        <div class="flex flex-col items-center gap-1 opacity-40">
+          <p class="text-white text-[10px] tracking-[0.2em] uppercase font-medium">Scroll to view full report</p>
+          <div class="w-1 h-4 rounded-full bg-gradient-to-b from-white/60 to-transparent animate-bounce mt-1"></div>
+        </div>
       </div>
     </div>
 
