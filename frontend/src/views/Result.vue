@@ -78,15 +78,31 @@
     </div>
 
     <!-- Share Modal -->
-    <div v-if="shareImage" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 animate-in fade-in duration-300">
-      <div class="relative w-full max-w-sm">
-        <button @click="shareImage = null" class="absolute -top-12 right-0 p-2 text-white/70 hover:text-white transition-colors">
-          <X class="w-8 h-8" />
+    <div v-if="shareImage" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col items-center justify-center p-4 animate-in fade-in duration-300" @click.self="shareImage = null">
+      <div class="relative w-full max-w-sm flex flex-col items-center">
+        <!-- Close Button -->
+        <button @click="shareImage = null" class="absolute -top-14 right-0 p-2 text-white/70 hover:text-white transition-colors bg-white/10 rounded-full">
+          <X class="w-6 h-6" />
         </button>
-        <img :src="shareImage" class="w-full rounded-3xl shadow-2xl border-4 border-white/10" alt="分享卡片" />
-        <p class="text-white/80 text-center mt-6 font-medium animate-pulse">
-          长按图片保存并分享给好友
-        </p>
+        
+        <!-- Preview Container -->
+        <div class="bg-white p-2 rounded-[2rem] shadow-2xl w-full">
+          <img :src="shareImage" class="w-full rounded-[1.5rem] block" alt="分享卡片" @contextmenu.prevent />
+        </div>
+        
+        <!-- Tip Text -->
+        <div class="mt-8 flex flex-col items-center gap-3">
+          <div class="flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full border border-white/30 backdrop-blur-md">
+            <span class="flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            <p class="text-white text-sm font-medium tracking-wide">
+              长按上方图片保存到相册
+            </p>
+          </div>
+          <p class="text-white/40 text-xs">适配微信及各大移动端浏览器</p>
+        </div>
       </div>
     </div>
 
@@ -205,6 +221,9 @@ const generateShareCard = async () => {
     })
     
     shareImage.value = canvas.toDataURL('image/png')
+    
+    // Auto-scroll to top to ensure modal content is visible if page was scrolled
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   } catch (error) {
     console.error('Failed to generate image:', error)
     alert('生成失败，请稍后重试')
