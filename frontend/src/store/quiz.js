@@ -3,7 +3,7 @@ import questionsData from '../data/questions.json'
 
 export const useQuizStore = defineStore('quiz', {
   state: () => ({
-    questions: questionsData.questions,
+    questions: [...questionsData.questions].sort(() => Math.random() - 0.5),
     answers: {},
     currentQuestionIndex: 0,
     result: null,
@@ -187,6 +187,8 @@ export const useQuizStore = defineStore('quiz', {
       this.answers = {}
       this.currentQuestionIndex = 0
       this.result = null
+      // 重新开始时再次打乱题目顺序
+      this.questions = [...questionsData.questions].sort(() => Math.random() - 0.5)
     }
   }
 })
