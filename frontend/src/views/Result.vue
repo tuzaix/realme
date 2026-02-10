@@ -79,14 +79,14 @@
 
     <!-- Share Modal -->
     <div v-if="shareImage" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col items-center justify-center p-6 animate-in fade-in duration-300" @click.self="shareImage = null">
-      <div class="relative w-full max-w-[320px] flex flex-col items-center gap-6">
+      <div class="relative w-full max-w-[320px] flex flex-col items-center gap-4">
         <!-- Close Button -->
-        <button @click="shareImage = null" class="absolute -top-12 -right-4 p-2 text-white/50 hover:text-white transition-colors">
+        <button @click="shareImage = null" class="absolute -top-10 -right-2 p-2 text-white/50 hover:text-white transition-colors">
           <X class="w-6 h-6" />
         </button>
 
-        <!-- Tip Text (Moved to top) -->
-        <div class="flex flex-col items-center gap-2">
+        <!-- Tip Text (Fixed at top) -->
+        <div class="flex flex-col items-center shrink-0">
           <div class="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20 backdrop-blur-md">
             <span class="flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-blue-400 opacity-75"></span>
@@ -96,12 +96,12 @@
           </div>
         </div>
         
-        <!-- Preview Container -->
-        <div class="bg-white p-1.5 rounded-[2.5rem] shadow-2xl w-full transform transition-transform hover:scale-[1.02]">
+        <!-- Preview Container (Scrollable) -->
+        <div class="bg-white p-1.5 rounded-[2.5rem] shadow-2xl w-full max-h-[60vh] overflow-y-auto scrollbar-hide">
           <img :src="shareImage" class="w-full rounded-[2rem] block shadow-inner" alt="分享卡片" @contextmenu.prevent />
         </div>
 
-        <p class="text-white/30 text-xs tracking-widest">已适配移动端长按保存</p>
+        <p class="text-white/30 text-xs tracking-widest shrink-0">上下滑动预览完整卡片</p>
       </div>
     </div>
 
