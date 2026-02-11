@@ -2,16 +2,45 @@ import { defineStore } from 'pinia'
 import questionsData from '../data/questions.json'
 
 export const useQuizStore = defineStore('quiz', {
-  state: () => ({
-    questions: [...questionsData.questions].sort(() => Math.random() - 0.5),
-    answers: {},
-    currentQuestionIndex: 0,
-    result: null,
-    // 卡密管理
-    cards: [],
-    activeCard: JSON.parse(localStorage.getItem('active_card') || 'null'),
-    deviceId: localStorage.getItem('device_id') || Math.random().toString(36).substring(2, 15)
-  }),
+  state: () => {
+    let deviceId = localStorage.getItem('device_id')
+    if (!deviceId) {
+      deviceId = Math.random().toString(36).substring(2, 15)
+      localStorage.setItem('device_id', deviceId)
+    }
+    
+    return {
+      questions: [...questionsData.questions].sort(() => Math.random() - 0.5),
+      answers: {},
+      currentQuestionIndex: 0,
+      result: null,
+      // 卡密管理
+      cards: [],
+      activeCard: JSON.parse(localStorage.getItem('active_card') || 'null'),
+      deviceId: deviceId
+    }
+  },
+  getters: {
+    isCardValid: (state) => {
+      const card = state.activeCard
+      if (!card) return false
+      
+      // 必须处于激活状态且有激活时间
+      if (card.isActive === false || !card.activatedAt) return false
+      
+      const now = new Date()
+      const activatedDate = new Date(card.activatedAt)
+      const duration = Number(card.durationDays) || 0
+      
+      // 如果没有设置时长，默认视为无效
+      if (duration <= 0) return false
+      
+      const expireDate = new Date(activatedDate.getTime() + duration * 24 * 60 * 60 * 1000)
+      
+      // 只要未过期就算有效（设备检查主要在验证环节，getter 中可以稍微宽松一点以提高稳定性）
+      return now <= expireDate
+    }
+  },
   actions: {
     // 从后端初始化卡密数据
     async initCards() {
@@ -68,7 +97,12 @@ export const useQuizStore = defineStore('quiz', {
       return newCodes
     },
     // 验证卡密
-    verifyCard(code) {
+    async verifyCard(code) {
+      // 如果卡密列表为空，尝试重新加载
+      if (this.cards.length === 0) {
+        await this.initCards()
+      }
+      
       const card = this.cards.find(c => c.code === code)
       if (!card) return { success: false, message: '卡密不存在' }
       if (!card.isActive) return { success: false, message: '卡密已禁用' }
@@ -82,7 +116,7 @@ export const useQuizStore = defineStore('quiz', {
         this.activeCard = card
         localStorage.setItem('active_card', JSON.stringify(card))
         localStorage.setItem('device_id', this.deviceId)
-        this.saveCards()
+        await this.saveCards()
         return { success: true }
       }
 
@@ -96,17 +130,18 @@ export const useQuizStore = defineStore('quiz', {
 
       // 检查有效期
       const activatedDate = new Date(card.activatedAt)
-      const expireDate = new Date(activatedDate.getTime() + card.durationDays * 24 * 60 * 60 * 1000)
+      const duration = Number(card.durationDays) || 0
+      const expireDate = new Date(activatedDate.getTime() + duration * 24 * 60 * 60 * 1000)
       
       if (now > expireDate) {
         card.isActive = false
-        this.saveCards()
+        await this.saveCards()
         return { success: false, message: '卡密已过期' }
       }
 
       this.activeCard = card
       localStorage.setItem('active_card', JSON.stringify(card))
-      this.saveCards()
+      await this.saveCards()
       return { success: true }
     },
     // 后台管理操作

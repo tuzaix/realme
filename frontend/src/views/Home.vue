@@ -19,7 +19,7 @@
 
     <div class="w-full max-w-xs space-y-4">
       <button 
-        @click="showAuthModal = true"
+        @click="startQuiz"
         class="group w-full py-4 bg-blue-600 text-white rounded-2xl font-bold text-xl shadow-xl shadow-blue-200 active:scale-95 transition-all flex items-center justify-center gap-2"
       >
         立即开始
@@ -30,44 +30,11 @@
         <span class="flex items-center gap-1"><Sparkles class="w-3 h-3" /> 专业模型</span>
       </div>
     </div>
-
-    <!-- 卡密验证弹窗 -->
-    <div v-if="showAuthModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div class="bg-white w-full max-w-sm rounded-3xl p-8 shadow-2xl transform transition-all">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">输入卡密开启测试</h3>
-        
-        <div class="space-y-4 mb-8">
-          <input 
-            v-model="cardCode"
-            type="text" 
-            placeholder="请输入您的激活码"
-            class="w-full px-6 py-4 bg-gray-50 border-2 border-transparent focus:border-blue-500 rounded-2xl outline-none transition-all text-center text-lg font-mono uppercase tracking-widest"
-            @keyup.enter="handleAuth"
-          />
-          <p v-if="errorMsg" class="text-red-500 text-sm font-medium text-center">{{ errorMsg }}</p>
-        </div>
-
-        <div class="flex flex-col gap-3">
-          <button 
-            @click="handleAuth"
-            class="w-full py-4 bg-blue-600 text-white rounded-2xl font-bold text-lg shadow-lg active:scale-95 transition-all"
-          >
-            验证激活
-          </button>
-          <button 
-            @click="showAuthModal = false; errorMsg = ''"
-            class="w-full py-4 bg-gray-100 text-gray-500 rounded-2xl font-bold text-lg active:scale-95 transition-all"
-          >
-            取消
-          </button>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '../store/quiz'
 import { Brain, ChevronRight, Clock, ShieldCheck, Sparkles } from 'lucide-vue-next'
@@ -79,22 +46,8 @@ onMounted(() => {
   store.initCards()
 })
 
-const showAuthModal = ref(false)
-const cardCode = ref('')
-const errorMsg = ref('')
-
-const handleAuth = () => {
-  if (!cardCode.value.trim()) {
-    errorMsg.value = '请输入卡密'
-    return
-  }
-
-  const result = store.verifyCard(cardCode.value.trim().toUpperCase())
-  if (result.success) {
-    store.resetQuiz()
-    router.push('/quiz')
-  } else {
-    errorMsg.value = result.message
-  }
+const startQuiz = () => {
+  store.resetQuiz()
+  router.push('/quiz')
 }
 </script>

@@ -197,7 +197,7 @@ import {
 
 const router = useRouter()
 const store = useQuizStore()
-const { result } = storeToRefs(store)
+const { result, isCardValid } = storeToRefs(store)
 
 const isGenerating = ref(false)
 const shareImage = ref(null)
@@ -205,7 +205,7 @@ const shareImage = ref(null)
 const psychAge = computed(() => result.value?.psychAge ?? 0)
 
 onMounted(() => {
-  if (!result.value) {
+  if (!result.value || !isCardValid.value) {
     router.replace('/')
   }
 })
