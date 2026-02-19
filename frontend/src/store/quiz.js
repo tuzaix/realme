@@ -17,11 +17,19 @@ export const useQuizStore = defineStore('quiz', {
       // 卡密管理
       cards: [],
       activeCard: JSON.parse(localStorage.getItem('active_card') || 'null'),
-      deviceId: deviceId
+      deviceId: deviceId,
+      // 系统配置
+      config: {
+        enableCardAuth: true
+      }
     }
   },
   getters: {
+    isAuthEnabled: (state) => state.config.enableCardAuth,
     isCardValid: (state) => {
+      // 如果卡密验证未开启，则始终视为有效
+      if (!state.config.enableCardAuth) return true
+      
       const card = state.activeCard
       if (!card) return false
       
@@ -42,6 +50,38 @@ export const useQuizStore = defineStore('quiz', {
     }
   },
   actions: {
+    // 初始化系统配置
+    async fetchConfig() {
+      try {
+        const response = await fetch('/api/config')
+        if (response.ok) {
+          const data = await response.json()
+          if (data.system) {
+            this.config = { ...this.config, ...data.system }
+          }
+        }
+      } catch (error) {
+        console.error('获取配置失败:', error)
+      }
+    },
+    // 更新系统配置
+    async updateConfig(newConfig) {
+      try {
+        const response = await fetch('/api/config', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ system: newConfig })
+        })
+        if (response.ok) {
+          const data = await response.json()
+          this.config = { ...this.config, ...data.system }
+          return true
+        }
+      } catch (error) {
+        console.error('更新配置失败:', error)
+      }
+      return false
+    },
     // 从后端初始化卡密数据
     async initCards() {
       try {

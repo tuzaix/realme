@@ -14,6 +14,15 @@
           </div>
           <div class="flex items-center gap-3">
             <button 
+              @click="toggleAuth"
+              class="flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm transition-all border shadow-sm"
+              :class="store.isAuthEnabled ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' : 'bg-gray-100 text-gray-500 border-gray-200 hover:bg-gray-200'"
+            >
+              <component :is="store.isAuthEnabled ? Shield : ShieldOff" class="w-4 h-4" />
+              {{ store.isAuthEnabled ? '卡密验证已开启' : '卡密验证已关闭' }}
+            </button>
+            <div class="w-px h-6 bg-gray-200 mx-2"></div>
+            <button 
               v-if="selectedCards.length > 0"
               @click="deleteSelectedCards"
               class="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 rounded-xl font-semibold text-sm hover:bg-red-100 transition-colors"
@@ -235,7 +244,7 @@
 <script setup>
 import { ref, reactive, computed } from 'vue'
 import { useQuizStore } from '../store/quiz'
-import { Plus, Trash2, Key, Download, Search, Users, Copy, CheckCircle2, LogOut } from 'lucide-vue-next'
+import { Plus, Trash2, Key, Download, Search, Users, Copy, CheckCircle2, LogOut, Shield, ShieldOff } from 'lucide-vue-next'
 
 const store = useQuizStore()
 const showCreateModal = ref(false)
@@ -246,6 +255,17 @@ const selectedCards = ref([])
 
 // 初始化加载数据
 store.initCards()
+store.fetchConfig()
+
+const toggleAuth = async () => {
+  const newState = !store.isAuthEnabled
+  const success = await store.updateConfig({ enableCardAuth: newState })
+  if (success) {
+    showToast(newState ? '卡密验证已开启' : '卡密验证已关闭')
+  } else {
+    showToast('设置失败，请重试')
+  }
+}
 
 const isAllSelected = computed(() => {
   return filteredCards.value.length > 0 && 

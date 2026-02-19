@@ -2,5 +2,8 @@
   "admin": {
     "username": "admin",
     "password": "admin888"
+  },
+  "system": {
+    "enableCardAuth": true
   }
 }

@@ -84,6 +84,36 @@ export default defineConfig({
               res.setHeader('Content-Type', 'application/json')
               res.end(JSON.stringify({ success: true, path: filePath }))
             } 
+            // 4. 系统配置接口
+            else if (req.url === '/api/config' && req.method === 'GET') {
+              const configPath = path.resolve(__dirname, '../backend/config.json')
+              if (fs.existsSync(configPath)) {
+                const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'))
+                res.setHeader('Content-Type', 'application/json')
+                // 仅返回 system 部分
+                res.end(JSON.stringify({ system: config.system || { enableCardAuth: true } }))
+              } else {
+                res.setHeader('Content-Type', 'application/json')
+                res.end(JSON.stringify({ system: { enableCardAuth: true } }))
+              }
+            }
+            else if (req.url === '/api/config' && req.method === 'POST') {
+              const body = await getBody()
+              const { system } = JSON.parse(body)
+              const configPath = path.resolve(__dirname, '../backend/config.json')
+              
+              if (fs.existsSync(configPath)) {
+                const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'))
+                config.system = { ...config.system, ...system }
+                fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf-8')
+                
+                res.setHeader('Content-Type', 'application/json')
+                res.end(JSON.stringify({ success: true, system: config.system }))
+              } else {
+                res.statusCode = 404
+                res.end(JSON.stringify({ error: '配置文件不存在' }))
+              }
+            }
             else {
               next()
             }

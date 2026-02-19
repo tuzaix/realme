@@ -21,6 +21,7 @@ const store = useQuizStore()
 
 onMounted(() => {
   store.initCards()
+  store.fetchConfig()
 })
 </script>
 

@@ -58,6 +58,41 @@ app.post('/api/cards', (req, res) => {
     }
 });
 
+// 获取系统配置
+app.get('/api/config', (req, res) => {
+    try {
+        if (!fs.existsSync(CONFIG_FILE)) {
+            return res.json({ system: { enableCardAuth: true } });
+        }
+        const config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+        // 只返回公开的配置，不返回管理员密码
+        res.json({ system: config.system || { enableCardAuth: true } });
+    } catch (error) {
+        console.error('读取配置失败:', error);
+        res.status(500).json({ error: '读取配置失败' });
+    }
+});
+
+// 更新系统配置
+app.post('/api/config', (req, res) => {
+    try {
+        const { system } = req.body;
+        if (!fs.existsSync(CONFIG_FILE)) {
+            return res.status(404).json({ error: '配置文件不存在' });
+        }
+        const config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+        
+        // 更新 system 配置
+        config.system = { ...config.system, ...system };
+        
+        fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2), 'utf8');
+        res.json({ success: true, system: config.system });
+    } catch (error) {
+        console.error('更新配置失败:', error);
+        res.status(500).json({ error: '更新配置失败' });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Backend server is running on http://localhost:${PORT}`);
 });
